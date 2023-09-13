@@ -1,16 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <linux/version.h>
+#include "config.h"
 
 int main(void){
-   printf("┌────────┐\n");
-   printf("│\x1b[31m user   \x1b[0m│ %s\n", getenv("USER"));
-   printf("│\x1b[32m sh     \x1b[0m│ %s\n", getenv("SHELL"));
-   printf("│\x1b[33m term   \x1b[0m│ %s\n", getenv("TERM"));
-   printf("│\x1b[34m locale \x1b[0m│ %s\n", getenv("LANG"));
-   printf("│\x1b[35m kernel \x1b[0m│ %d.%d.%d\n", LINUX_VERSION_MAJOR, LINUX_VERSION_PATCHLEVEL, LINUX_VERSION_SUBLEVEL);
-   printf("├────────┤\n");
-   printf("│\x1b[36m colors \x1b[0m│ \x1b[41m  \x1b[42m  \x1b[43m  \x1b[44m  \x1b[45m  \x1b[46m  \x1b[0m\n");
-   printf("└────────┘\n");
+   if (SHOW_USER == 1){
+   	printf("\x1b[31muser:\x1b[0m %s\n", getenv("USER"));
+   }
+
+   if(SHOW_SH == 1){
+   	printf("\x1b[32msh:\x1b[0m %s\n", getenv("SHELL"));
+   }
+
+   if(SHOW_TERM == 1){
+   	printf("\x1b[33mterm:\x1b[0m %s\n", getenv("TERM"));
+   }
+
+   if(SHOW_LOCALE == 1){
+   	printf("\x1b[34mlocale:\x1b[0m %s\n", getenv("LANG"));
+   }
+
+   if(SHOW_COLS == 1){
+   	if(COL_BLOCKS_COL == 1){
+   	   printf("\x1b[35mcolors: \x1b[0m\x1b[41m%s\x1b[42m%s\x1b[43m%s\x1b[44m%s\x1b[45m%s\x1b[0m\n", col_block, col_block, col_block, col_block, col_block);
+   	} else {
+	    printf("\x1b[35mcolors: \x1b[0m\x1b[31m%s\x1b[32m%s\x1b[33m%s\x1b[34m%s\x1b[35m%s\x1b[0m\n", col_block, col_block, col_block, col_block, col_block);
+   	}
+   }
    return 0;
 }
