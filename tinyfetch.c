@@ -4,19 +4,19 @@
 
 int main(void){
    if (SHOW_USER == 1){
-   	printf("\x1b[31muser:\x1b[0m %s\n", getenv("USER"));
+   	printf("\x1b[31muser:\x1b[0m \t%s\n", getenv("USER"));
    }
 
    if(SHOW_SH == 1){
-   	printf("\x1b[32msh:\x1b[0m %s\n", getenv("SHELL"));
+   	printf("\x1b[32msh:\x1b[0m \t%s\n", getenv("SHELL"));
    }
 
    if(SHOW_TERM == 1){
-   	printf("\x1b[33mterm:\x1b[0m %s\n", getenv("TERM"));
+   	printf("\x1b[33mterm:\x1b[0m \t%s\n", getenv("TERM"));
    }
 
    if(SHOW_LOCALE == 1){
-   	printf("\x1b[34mlocale:\x1b[0m %s\n", getenv("LANG"));
+   	printf("\x1b[34mlocale:\x1b[0m\t%s\n", getenv("LANG"));
    }
 
    if(SHOW_COLS == 1){
