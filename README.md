@@ -15,7 +15,7 @@ $ ./tinyfetch
 ```
 ## Preview
 
-![master](tinyfetch/img/tinyfetch.png)
+![master](img/tinyfetch.png)
 
 ## License
 
