@@ -12,4 +12,4 @@
 // note: for COL_BLOCKS_COL here putting 1 will use terminal foreground as background and 0 will use terminal backgroud as background and colors as foreground
 #define COL_BLOCKS_COL 1 // requires SHOW_COLS as 1
 
-char* col_block = "  "; // here instead of two blank spaces you can enter any char you want
+#define col_block "  " // here instead of two blank spaces you can enter any char you want
