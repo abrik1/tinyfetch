@@ -3,22 +3,39 @@
 #include "config.h"
 
 int main(void){
-   if (SHOW_USER)
-   	printf("\x1b[31muser:\x1b[0m \t%s\n", getenv("USER"));
+   #if SHOW_USER
+      printf("\x1b[31muser:\x1b[0m \t%s\n", getenv("USER"));
+   #endif
 
-   if(SHOW_SH)
-   	printf("\x1b[32msh:\x1b[0m \t%s\n", getenv("SHELL"));
+   #if SHOW_SH
+      printf("\x1b[32msh:\x1b[0m \t%s\n", getenv("SHELL"));
+   #endif
 
-   if(SHOW_TERM)
-   	printf("\x1b[33mterm:\x1b[0m \t%s\n", getenv("TERM"));
+   #if SHOW_TERM
+      printf("\x1b[33mterm:\x1b[0m \t%s\n", getenv("TERM"));
+   #endif
 
-   if(SHOW_LOCALE)
-   	printf("\x1b[34mlocale:\x1b[0m\t%s\n", getenv("LANG"));
+   #if SHOW_LOCALE
+      printf("\x1b[34mlocale:\x1b[0m\t%s\n", getenv("LANG"));
+   #endif
 
-   if(SHOW_COLS){
-   	if(COL_BLOCKS_COL)
-   	   printf("\x1b[35mcolors: \x1b[0m\x1b[41m%s\x1b[42m%s\x1b[43m%s\x1b[44m%s\x1b[45m%s\x1b[0m\n", col_block, col_block, col_block, col_block, col_block);
-   	else 
-	   printf("\x1b[35mcolors: \x1b[0m\x1b[31m%s\x1b[32m%s\x1b[33m%s\x1b[34m%s\x1b[35m%s\x1b[0m\n", col_block, col_block, col_block, col_block, col_block);
-   }
+   #if SHOW_COLS
+      #if COL_BLOCKS_COL
+         printf("\x1b[35mcolors: \x1b[0m"
+         "\x1b[41m" col_block
+         "\x1b[42m" col_block
+         "\x1b[43m" col_block
+         "\x1b[44m" col_block
+         "\x1b[45m" col_block
+         "\x1b[0m\n");
+      #else 
+         printf("\x1b[35mcolors: \x1b[0m"
+         "\x1b[31m" col_block
+         "\x1b[32m" col_block
+         "\x1b[33m" col_block
+         "\x1b[34m" col_block
+         "\x1b[35m" col_block
+         "\x1b[0m\n";
+      #endif
+   #endif
 }
