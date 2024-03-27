@@ -35,7 +35,7 @@ int main(void){
          "\x1b[33m" col_block
          "\x1b[34m" col_block
          "\x1b[35m" col_block
-         "\x1b[0m\n";
+         "\x1b[0m\n");
       #endif
    #endif
 }
